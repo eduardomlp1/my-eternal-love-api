@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Bem-vindo ao Meu Eterno Amor!</h1>
+        <h1>Bem-vindo (a) ao Meu Eterno Amor!</h1>
         <CriarPagina /> {/* Aqui adicionamos o componente de criação de página */}
       </header>
     </div>

@@ -1,6 +1,7 @@
 // src/components/CriarPagina.js
 import React, { useState } from 'react';
 import axios from 'axios';
+import './CriarPagina.css'; // Importando o CSS
 
 function CriarPagina() {
     const [nomeCasal, setNomeCasal] = useState('');
@@ -11,16 +12,13 @@ function CriarPagina() {
     const [linkMusica, setLinkMusica] = useState('');
     const [imagens, setImagens] = useState([]);
 
-    // Handler para adicionar múltiplas imagens
     const handleImageUpload = (e) => {
         const files = Array.from(e.target.files);
         setImagens((prevImages) => [...prevImages, ...files]);
     };
 
-    // Função para manipular o envio do formulário
     const handleCreatePage = async (e) => {
-        e.preventDefault(); // Previne o comportamento padrão do formulário
-
+        e.preventDefault();
         const formData = new FormData();
         formData.append('nomeCasal', nomeCasal);
         formData.append('dataInicio', dataInicio);
@@ -29,25 +27,24 @@ function CriarPagina() {
         formData.append('mensagem', mensagem);
         formData.append('linkMusica', linkMusica);
         imagens.forEach((imagem) => {
-            formData.append('imagens', imagem); // Adiciona cada imagem ao FormData
+            formData.append('imagens', imagem);
         });
 
         try {
             const response = await axios.post('http://localhost:5000/api/aniversario', formData, {
                 headers: {
-                    'Content-Type': 'multipart/form-data', // Indica que estamos enviando dados de formulário
+                    'Content-Type': 'multipart/form-data',
                 },
             });
             console.log("Página criada com sucesso: ", response.data);
-            // Aqui você pode adicionar um feedback ao usuário, como um alerta
         } catch (error) {
             console.error("Erro ao criar a página: ", error);
-            // Você também pode adicionar um feedback de erro ao usuário
         }
     };
 
     return (
         <form onSubmit={handleCreatePage}>
+            <h1>Crie memórias eternas</h1>
             <input 
                 type="text" 
                 placeholder="Nome do Casal" 
@@ -90,7 +87,7 @@ function CriarPagina() {
                 type="file" 
                 onChange={handleImageUpload} 
                 multiple 
-                accept="image/*" // Aceita apenas imagens
+                accept="image/*" 
             />
             <button type="submit">Criar Página</button>
         </form>
