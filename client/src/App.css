@@ -1,33 +1,35 @@
+html, body {
+  height: 100%; /* Garante que o body e o html ocupem a altura total */
+  margin: 0;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  height: 100%; /* Garante que a classe App ocupe a altura total */
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 100%; /* Faz com que o cabeçalho do App ocupe a altura total */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza o conteúdo verticalmente */
+  align-items: center;
+}
+
+.full-screen-form {
+  width: 100%;
+  height: 100%; /* Para garantir que ocupe todo o espaço do contêiner pai */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center; /* Centraliza o conteúdo */
 }
 
+/* Estilos do link */
 .App-link {
-  color: #61dafb;
+  color: black; /* Considere usar variáveis de cor ou uma paleta para manutenibilidade */
 }
 
+/* Animações */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +37,57 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* FAQ */
+.FAQ {
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.9); 
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Perguntas e respostas */
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f9f9f9; 
+  border: 1px solid rgba(200, 200, 200, 0.5);
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 8px 0;
+  transition: background-color 0.3s; 
+  color: #333; 
+}
+
+.faq-question:hover {
+  background-color: rgba(240, 240, 240, 0.8); 
+}
+
+.faq-answer {
+  padding: 10px;
+  margin-top: 5px; 
+  color: #555; 
+  display: none; 
+  transition: max-height 0.3s ease; 
+}
+
+/* Classe para mostrar a resposta */
+.faq-answer.active {
+  display: block; 
+  border: 1px solid rgba(200, 200, 200, 0.3);
+  border-radius: 5px; 
+}
+
+.faq-icon {
+  margin-left: 10px;
+  color: #007BFF; 
+  transition: transform 0.3s; 
+}
+
+.faq-icon:hover {
+  transform: rotate(180deg); 
 }

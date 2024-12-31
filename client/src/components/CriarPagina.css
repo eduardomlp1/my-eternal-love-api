@@ -1,23 +1,28 @@
-/* src/components/CriarPagina.css */
+/* Estilo geral para o corpo */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
     margin: 0;
 }
 
+/* Estilo principal da aplicação */
 .App {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
+/* Ajustes para o formulário */
 form {
     background-color: #ffffff;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 100%;
+    max-width: 400px;
 }
 
 h1 {
@@ -25,6 +30,7 @@ h1 {
     color: #333;
 }
 
+/* Inputs no formulário */
 input[type="text"],
 input[type="date"],
 input[type="time"],
@@ -55,6 +61,7 @@ textarea {
     height: 80px;
 }
 
+/* Botões do formulário */
 button {
     width: 100%;
     padding: 10px;
@@ -68,4 +75,105 @@ button {
 
 button:hover {
     background-color: #218838;
+}
+
+/* ------ NOVOS ESTILOS PARA O FAQ ------ */
+
+/* Container principal do FAQ */
+.FAQ {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Título das Perguntas Frequentes */
+.FAQ h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Lista de perguntas (separação entre itens) */
+.faq-list {
+    margin-top: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Cada item do FAQ */
+.faq-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+/* Estilo individual do botão para perguntas */
+.faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hover no botão da pergunta */
+.faq-question:hover {
+    background-color: #f3f3f3;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícone no botão de perguntas */
+.faq-icon {
+    font-size: 1.2rem;
+    color: #555;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate para o ícone quando aberto */
+.faq-icon.rotate-180 {
+    transform: rotate(180deg);
+}
+
+/* Estilo para a resposta de cada FAQ */
+.faq-answer {
+    margin-top: 10px;
+    padding-left: 15px;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+}
+
+/* ------ ESTILO RESPONSIVO ------ */
+
+/* Ajustes para telas menores */
+@media (max-width: 600px) {
+    .App {
+        padding: 10px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    .FAQ {
+        padding: 15px;
+    }
+
+    .faq-question {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
